@@ -1,15 +1,26 @@
 var request = require('request');
 
-exports.GetIP = (link) => {
-  request(link, (error, response, body) => {
-    var data = JSON.parse(body);
-    console.log(data.ip);
-  });
-};
+var baseURL = 'https://freegeoip.net/';
+var format = 'json/';
+var website = 'github.com';
 
-exports.GetAllData = (link) => {
-  request(link, (err, res, body) => {
+exports.GetAllDataCache = (site, type, callback) => {
+  
+  var fullURL = baseURL + type + "/" + site;
+  
+  request(fullURL, (err, res, body) => {
     var data = JSON.parse(body);
-    console.log(body);
+    callback(data);
   });
-};
+}; 
+
+
+exports.GetAllData = (site, type, callback) => {
+  
+  var fullURL = baseURL + type + "/" + site;
+  
+  request(fullURL, (err, res, body) => {
+    var data = JSON.parse(body);
+    callback(data);
+  });
+}; 

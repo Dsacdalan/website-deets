@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div(class='container')
+    div(class='row')
+      p Welcome to Website Deets! Here you can enter in any website or IP and get location information.      
+      div(class='row')
+        ul
+          li Your IP is #{data.ip}.
+      p API from 
+        a(href='freegeoip.net') freegoip.net 
+        | which uses GeoLite2 data by 
+        a(href='maxmind.com') MaxMind.
