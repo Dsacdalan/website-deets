@@ -4,8 +4,8 @@ var router = express.Router();
 var freegeoip = require('../freegeoip');
 
 router.get('/', (req, res) => {
-  freegeoip.GetAllData("", "json", (data) => {
-    res.render('home', { data: data});
+  freegeoip.GetAllDataCache("", "json", (data) => {
+    res.render('home', { data: data, title: 'Home'});
   });
 });
 

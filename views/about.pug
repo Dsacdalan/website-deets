@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div(class='container')
+    p This application is my first barebones Express application.
+    p Here are the node modules I used:
+    ul
+      li 
+        a(href='https://www.npmjs.com/package/express') Express
+      li 
+        a(href='https://www.npmjs.com/package/pug') Pug
+      li 
+        a(href='https://www.npmjs.com/package/node-cache') Node-Cache
+      li 
+        a(href='https://www.npmjs.com/package/request') Request
+    p The API for the location data is from 
+        a(href='https://freegeoip.net') freegoip.net 
+        | which uses GeoLite2 data by 
+        a(href='https://maxmind.com') MaxMind.

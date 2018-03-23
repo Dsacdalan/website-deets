@@ -2,12 +2,13 @@ extends layout
 
 block content
   div(class='container')
-    div(class='row')
-      p Welcome to Website Deets! Here you can enter in any website or IP and get location information.      
-      div(class='row')
-        ul
-          li Your IP is #{data.ip}.
-      p API from 
-        a(href='freegeoip.net') freegoip.net 
-        | which uses GeoLite2 data by 
-        a(href='maxmind.com') MaxMind.
+    div(class='jumbotron' id='jumbotronHome')
+      h1 Welcome to Website Deets! 
+      p Here you can enter in any website or IP and get its location information.
+      hr(class='my-2')
+      form(action='/search')
+        div(class='form-group')
+          label(for='q') Get Deets:
+          input(class='form-control' type='search' placeholder='Website or IP' id='q' name='q')
+        button(class='btn btn-outline-success' type='submit') Search
+

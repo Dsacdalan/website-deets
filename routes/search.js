@@ -3,7 +3,7 @@ var router = express.Router();
 
 var freegeoip = require('../freegeoip');
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   var site, name = "";
 
   if (req.query.q) {
@@ -16,11 +16,17 @@ router.get('/', (req, res) => {
 
   var type = (req.query.type === "json" || "csv" || "xml") ? req.query.type : "json";
 
-  freegeoip.GetAllData(site, "json", (data) => {
-    res.render('site', { 
-      name: name,
-      data: data
-    });
+  freegeoip.GetAllDataCache(site, "json", (data) => {
+      if (data) {
+        res.render('search', { 
+          name: name,
+          title: 'Search',
+          data: data
+        });
+      } else {
+        req.errorMessage = site;
+        next();
+      }
   });
 });
 
