@@ -3,7 +3,7 @@ const path = require('path');
 const cacheService = require('./cacheService');
 const express = require('express');
 const cookies = require('cookies');
-const port = process.env.port || 3000;
+const port = process.env.PORT || 8080;
 
 // Cache - Setup
 cacheService.start((err) => {
@@ -40,6 +40,6 @@ app.use((err, req, res, next) => {
 });
 
 // Express - Start
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Listening on port ' + port + '.');
 });
