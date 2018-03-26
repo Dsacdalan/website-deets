@@ -2,6 +2,7 @@
 const path = require('path');
 const cacheService = require('./cacheService');
 const express = require('express');
+const port = process.env.port || 3000;
 
 // Cache - Setup
 cacheService.start((err) => {
@@ -38,5 +39,5 @@ app.use((err, req, res, next) => {
 
 // Express - Start
 app.listen(3000, () => {
-  console.log('Listening on port 3000.');
+  console.log('Listening on port ' + port + '.');
 });
