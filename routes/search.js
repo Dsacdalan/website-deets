@@ -7,15 +7,15 @@ var cookieSerivce = require('../cookieService');
 router.get('/', (req, res, next) => {
   var site, name = '';
 
-  if (req.query.q) {
+  if (req.query.q !== '') {
     site = req.query.q;
     name = req.query.q;
+    cookieSerivce.SetHistory(req);
+    
   } else {
-    site = 'req.ip';
+    site = '';
     name = 'Your Computer';
   }
-
-  cookieSerivce.SetHistory(req);
 
   var type = (req.query.type === 'json' || 'csv' || 'xml') ? req.query.type : 'json';
 
