@@ -6,8 +6,7 @@ const cookies = require('cookies');
 const port = process.env.PORT || 8080;
 
 // Cache - Setup
-cacheService.start((err) => {
-  if (err) console.error(err);
+cacheService.start(() => {
 });
 
 // Express - Setup
@@ -15,7 +14,7 @@ const app = express();
 app.use(cookies.express());
 app.use(express.static(path.join(__dirname, 'public')));
 var home = require('./routes/home');
-var search = require('./routes/search');var about = require('./routes/about')
+var search = require('./routes/search');var about = require('./routes/about');
 
 
 // Express - View Engine
@@ -29,7 +28,7 @@ app.use('/about', about);
 
 // Express - Error Handling 
 app.use((req, res, next) => {
-  var message = (req.errorMessage) ? req.errorMessage : 'that page'
+  var message = (req.errorMessage) ? req.errorMessage : 'that page';
   var err = new Error(message);
   err.status = 404;
   next(err);

@@ -17,19 +17,17 @@ router.get('/', (req, res, next) => {
     name = 'Your Computer';
   }
 
-  var type = (req.query.type === 'json' || 'csv' || 'xml') ? req.query.type : 'json';
-
   freegeoip.GetAllDataCache(site, 'json', (data) => {
-      if (data) {
-        res.render('search', { 
-          name: name,
-          title: 'Search',
-          data: data
-        });
-      } else {
-        req.errorMessage = site;
-        next();
-      }
+    if (data) {
+      res.render('search', { 
+        name: name,
+        title: 'Search',
+        data: data
+      });
+    } else {
+      req.errorMessage = site;
+      next();
+    }
   });
 });
 

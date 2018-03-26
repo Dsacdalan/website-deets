@@ -2,7 +2,6 @@ const request = require('request');
 const cacheService = require('./cacheService');
 
 const baseURL = 'https://freegeoip.net/';
-const num_entries = 8;
 const ttl = 600;
 
 /**
@@ -15,11 +14,9 @@ const ttl = 600;
 exports.GetAllDataCache = (site, type, callback) => {
   var key = site + type;
   cacheService.instance().get(key, (err, value) => {
-    if (err) console.error(err);
-
     // If the value is undefined, make the HTTP request for the data.
     if (value == undefined) {
-      var fullURL = baseURL + type + "/" + site;
+      var fullURL = baseURL + type + '/' + site;
       
       request(fullURL, (err, res, body) => {
         if (res.statusCode === 200) {
@@ -36,5 +33,4 @@ exports.GetAllDataCache = (site, type, callback) => {
       // Else return the cached value
     } else callback(value);
   });
-  
 }; 

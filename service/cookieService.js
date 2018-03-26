@@ -12,9 +12,9 @@ exports.GetHistory = (req, callback) => {
   if (!history) {
     history = [];
     req.cookies.set(cookieName, JSON.stringify(history));
-    callback(history)
+    callback(history);
   } else callback(JSON.parse(history));
-}
+};
 
 /**
  * Set's a website into the user's history cookie.
@@ -48,4 +48,4 @@ exports.SetHistory = (req) => {
   
   history.splice(0, 0, req.query.q);
   req.cookies.set(cookieName, JSON.stringify(history));
-}
+};
