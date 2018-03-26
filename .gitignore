@@ -9,5 +9,10 @@ node_modules/
 # Visual Studio debug configuration 
 .vscode/
 
+# Azure deploy configuration
+.deployment
+process.json
+web.config
+
 # Google Maps API Key
 apikey.txt

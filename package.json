@@ -4,7 +4,7 @@
   "description": "Simple website that displays location information on a IP or website.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "",
   "license": "MIT",
@@ -14,5 +14,8 @@
     "node-cache": "^4.2.0",
     "pug": "^2.0.3",
     "request": "^2.85.0"
+  },
+  "engines": {
+    "node": ">=8.10.0"
   }
 }
