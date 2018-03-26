@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
-
 var freegeoip = require('../freegeoip');
+var cookieService = require('../cookieService')
 
 router.get('/', (req, res) => {
-  freegeoip.GetAllDataCache("", "json", (data) => {
-    res.render('home', { data: data, title: 'Home'});
+  cookieService.GetHistory(req, (history) => {
+    freegeoip.GetAllDataCache('', 'json', (data) => {
+      res.render('home', { data: data, title: 'Home', history: history});
+    });
   });
 });
 

@@ -11,4 +11,12 @@ block content
           label(for='q') Get Deets:
           input(class='form-control' type='search' placeholder='Website or IP' id='q' name='q')
         button(class='btn btn-outline-success' type='submit') Search
+      if history.length !== 0
+        h1 History
+        ul
+          each val in history
+            li
+              - var link = '/search?q=' + val
+              a(href=link) #{val}
+
 

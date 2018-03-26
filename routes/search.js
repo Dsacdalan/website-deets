@@ -2,21 +2,24 @@ var express = require('express');
 var router = express.Router();
 
 var freegeoip = require('../freegeoip');
+var cookieSerivce = require('../cookieService');
 
 router.get('/', (req, res, next) => {
-  var site, name = "";
+  var site, name = '';
 
   if (req.query.q) {
     site = req.query.q;
     name = req.query.q;
   } else {
-    site = "";
-    name = "Your Computer";
+    site = 'req.ip';
+    name = 'Your Computer';
   }
 
-  var type = (req.query.type === "json" || "csv" || "xml") ? req.query.type : "json";
+  cookieSerivce.SetHistory(req);
 
-  freegeoip.GetAllDataCache(site, "json", (data) => {
+  var type = (req.query.type === 'json' || 'csv' || 'xml') ? req.query.type : 'json';
+
+  freegeoip.GetAllDataCache(site, 'json', (data) => {
       if (data) {
         res.render('search', { 
           name: name,

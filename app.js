@@ -2,6 +2,7 @@
 const path = require('path');
 const cacheService = require('./cacheService');
 const express = require('express');
+const cookies = require('cookies');
 const port = process.env.port || 3000;
 
 // Cache - Setup
@@ -11,6 +12,7 @@ cacheService.start((err) => {
 
 // Express - Setup
 const app = express();
+app.use(cookies.express());
 app.use(express.static(path.join(__dirname, 'public')));
 var home = require('./routes/home');
 var search = require('./routes/search');var about = require('./routes/about')
