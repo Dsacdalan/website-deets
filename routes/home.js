@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var freegeoip = require('../freegeoip');
-var cookieService = require('../cookieService')
+var freegeoip = require('../service/freegeoip');
+var cookieService = require('../service/cookieService')
 
 router.get('/', (req, res) => {
   cookieService.GetHistory(req, (history) => {

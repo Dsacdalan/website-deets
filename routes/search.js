@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var freegeoip = require('../freegeoip');
-var cookieSerivce = require('../cookieService');
+var freegeoip = require('../service/freegeoip');
+var cookieSerivce = require('../serivce/cookieService');
 
 router.get('/', (req, res, next) => {
   var site, name = '';
