@@ -2,8 +2,11 @@ extends layout
 
 block content
   div(class='container')
-    p This application is my first barebones Express application.
-    p Here are the node modules I used:
+    p This application is my first barebones Express application. 
+      | The project repo can be found on 
+      a(href='https://github.com/Dsacdalan/website-deets') GitHub
+      | .
+    p Here are the Node modules I used:
     ul
       li 
         a(href='https://www.npmjs.com/package/express') Express
@@ -15,7 +18,10 @@ block content
         a(href='https://www.npmjs.com/package/cookies') Cookies
       li 
         a(href='https://www.npmjs.com/package/request') Request
+      li
+        a(href='https://www.npmjs.com/package/moment-timezone') Moment-Timezone
     p The API for the location data is from 
         a(href='https://freegeoip.net') freegoip.net 
         | which uses GeoLite2 data by 
-        a(href='https://maxmind.com') MaxMind.
+        a(href='https://maxmind.com') MaxMind
+        | .

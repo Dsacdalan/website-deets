@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 var freegeoip = require('../service/freegeoip');
-var cookieSerivce = require('../serivce/cookieService');
+var cookieSerivce = require('../service/cookieService');
+var timezoneService = require('../service/timezoneService');
 
 router.get('/', (req, res, next) => {
   var site, name = '';
@@ -10,7 +11,6 @@ router.get('/', (req, res, next) => {
   if (req.query.q !== '') {
     site = req.query.q;
     name = req.query.q;
-    cookieSerivce.SetHistory(req);
     
   } else {
     site = '';
@@ -19,6 +19,12 @@ router.get('/', (req, res, next) => {
 
   freegeoip.GetAllDataCache(site, 'json', (data) => {
     if (data) {
+      if (req.query.q != '') {
+        cookieSerivce.SetHistory(req);      
+      }
+      var date = new Date();
+      data.time_zone = timezoneService.getTimezone(date, data.time_zone);
+
       res.render('search', { 
         name: name,
         title: 'Search',

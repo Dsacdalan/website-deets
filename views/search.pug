@@ -4,11 +4,12 @@ block content
   div(class='container')
     div(class='jumbotron' id='jumbotronSearch')
       div(class='row')
-        div(class='row col-xs-12')
+        div(class='col-xs-12 col-md-6')
           h1 #{name}
-            div
-              - var time_zone = (data.time_zone ? data.time_zone : "Unknown" )
-              h3 #{time_zone} Time Zone
+      div(class='row')
+        div(class='col-xs-12 col-md-6')        
+          - var time_zone = (data.time_zone ? data.time_zone : "Unknown" )
+          h3 Local Time: #{time_zone}
 
       div(class='row')
         div(class='col-xs-12 col-md-6')

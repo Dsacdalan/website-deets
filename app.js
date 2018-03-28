@@ -1,6 +1,6 @@
 // Modules
 const path = require('path');
-const cacheService = require('./service/cacheService');
+const cacheService = require('./src/cacheService');
 const express = require('express');
 const cookies = require('cookies');
 const port = process.env.PORT || 8080;
