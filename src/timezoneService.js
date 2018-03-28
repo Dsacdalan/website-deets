@@ -8,6 +8,9 @@ const tz = require('moment-timezone');
  */
 exports.getTimezone = (date, timeZone) => {
   var formattedDate = moment(date);
-  return formattedDate.tz(timeZone).format('ha z');
+  if (timeZone) {
+    return formattedDate.tz(timeZone).format('ha z');    
+  } else {
+    return 'Unknown';
+  }
 };
-

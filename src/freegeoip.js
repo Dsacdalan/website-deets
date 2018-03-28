@@ -1,5 +1,6 @@
 const request = require('request');
 const cacheService = require('./cacheService');
+const formatService = require('./formatService');
 
 const baseURL = 'https://freegeoip.net/';
 const ttl = 600;
@@ -21,7 +22,7 @@ exports.GetAllDataCache = (site, type, callback) => {
       request(fullURL, (err, res, body) => {
         if (res.statusCode === 200) {
           var data = JSON.parse(body);
-        
+          data = formatService.format(data);
           // Cache the data and return the data.
           cacheService.instance().set(key, data, ttl, (err, success) => {
             if (success) callback(data);

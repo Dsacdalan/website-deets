@@ -8,21 +8,16 @@ block content
           h1 #{name}
       div(class='row')
         div(class='col-xs-12 col-md-6')        
-          - var time_zone = (data.time_zone ? data.time_zone : "Unknown" )
-          h3 Local Time: #{time_zone}
+          h3 Local Time: #{data.time_zone}
 
       div(class='row')
         div(class='col-xs-12 col-md-6')
           h3 Location
           ul
-            - var city = (data.city ? data.city : "Unknown" )
-            li City: #{city}
-            - var region_name = (data.region_name ? data.region_name : "Unknown" )
-            li Region: #{region_name}
-            - var zip_code = (data.zip_code ? data.zip_code : "Unknown" )
-            li Zip Code: #{zip_code}
-            - var country_name = (data.country_name ? data.country_name : "Unknown" )
-              li Country: #{country_name}
+            li City: #{data.city}
+            li Region: #{data.region_name}
+            li Zip Code: #{data.zip_code}
+              li Country: #{data.country_name}
           h3 Coordinates 
           ul
             li Latitude: #{data.latitude}
