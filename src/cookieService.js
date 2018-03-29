@@ -3,7 +3,7 @@ const maxHistory = 5;
 
 /**
  * Get the user's history from cookies.
- * @param {object} req - The Express request object.
+ * @param {Request} req - The Express request object.
  * @param {function} callback - Callback to handle the history.
  */
 exports.GetHistory = (req, callback) => {
@@ -18,7 +18,7 @@ exports.GetHistory = (req, callback) => {
 
 /**
  * Set's a website into the user's history cookie.
- * @param {object} req - The Express request object.
+ * @param {Request} req - The Express request object.
  */
 // TODO: handle user's own IP
 exports.SetHistory = (req) => {
