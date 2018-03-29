@@ -1,35 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-var freegeoip = require('../src/freegeoip');
-var cookieSerivce = require('../src/cookieService');
+var fetchService = require('../src/fetchService');
 
 router.get('/', (req, res, next) => {
-  var site, name = '';
-
-  if (req.query.q !== '') {
-    site = req.query.q;
-    name = req.query.q;
-    
-  } else {
-    site = '';
-    name = 'Your Computer';
-  }
-
-  freegeoip.GetAllDataCache(site, 'json', (data) => {
-    if (data) {
-      if (req.query.q != '') {
-        cookieSerivce.SetHistory(req);      
-      }
-
+  fetchService.Search(req, (err, data) => {
+    if (err) {
+      req.errorMessage = req.query.q;
+      next();
+    } else {
       res.render('search', { 
-        name: name,
+        name: req.query.q ? req.query.q : 'Your Computer',
         title: 'Search',
         data: data
       });
-    } else {
-      req.errorMessage = site;
-      next();
     }
   });
 });

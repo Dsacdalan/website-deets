@@ -4,7 +4,7 @@ const maxHistory = 5;
 /**
  * Get the user's history from cookies.
  * @param {Request} req - The Express request object.
- * @param {function} callback - Callback to handle the history.
+ * @param {Function} callback - Callback function.
  */
 exports.GetHistory = (req, callback) => {
   var history = req.cookies.get(cookieName);
