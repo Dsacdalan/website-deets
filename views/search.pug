@@ -2,7 +2,7 @@ extends layout
 
 block content
   div(class='container')
-    div(class='jumbotron' id='jumbotronSearch')
+    div(class='jumbotron pt-3' id='jumbotronSearch')
       div(class='row')
         div(class='col-xs-12 col-md-6')
           h1 #{name}
@@ -22,7 +22,7 @@ block content
           ul
             li Latitude: #{data.latitude}
             li Longitude: #{data.longitude}
-        div(id='mapWidget' class='col-xs-12 col-md-6')
+        div(class='col-xs-12 col-md-6 pb-3')
           h3 Google Maps
           div(id='map')
           script.

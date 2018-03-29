@@ -1,8 +1,10 @@
 // Modules
 const path = require('path');
-const cacheService = require('./src/cacheService');
 const express = require('express');
 const cookies = require('cookies');
+const favicon = require('serve-favicon');
+const cacheService = require('./src/cacheService');
+
 const port = process.env.PORT || 8080;
 
 // Cache - Setup
@@ -13,6 +15,7 @@ cacheService.start(() => {
 const app = express();
 app.use(cookies.express());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 var home = require('./routes/home');
 var search = require('./routes/search');var about = require('./routes/about');
 

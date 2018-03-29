@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  div(class='container')
+  div(class='container pt-3')
     p This application is my first barebones Express application. 
       | The project repo can be found on 
       a(href='https://github.com/Dsacdalan/website-deets') GitHub
@@ -11,15 +11,24 @@ block content
       li 
         a(href='https://www.npmjs.com/package/express') Express
       li 
-        a(href='https://www.npmjs.com/package/pug') Pug
+        a(href='https://www.npmjs.com/package/request') Request
       li 
         a(href='https://www.npmjs.com/package/node-cache') Node-Cache
-      li
-        a(href='https://www.npmjs.com/package/cookies') Cookies
       li 
-        a(href='https://www.npmjs.com/package/request') Request
+        a(href='https://www.npmjs.com/package/pug') Pug
       li
         a(href='https://www.npmjs.com/package/moment-timezone') Moment-Timezone
+      
+    p Express middleware:
+    ul
+      li
+        a(href='https://www.npmjs.com/package/serve-favicon') Serve-Favicon
+      li
+        a(href='https://www.npmjs.com/package/cookies') Cookies
+
+    p The favicon uses 
+      a(href='https://fontawesome.com/license/') Font Awesome
+      | .
     p The API for the location data is from 
         a(href='https://freegeoip.net') freegoip.net 
         | which uses GeoLite2 data by 
